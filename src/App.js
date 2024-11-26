@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Service from './pages/Service';
+import { useAuth } from './AuthContext'; 
+import Normal from './pages/sections/Normal';
+import Timer from './pages/sections/ByTimer'; 
+import Auto from './pages/sections/Auto';
 
 function App() {
+  const { isLoggedIn } = useAuth(); // Destructure correctly
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/timer" element={<Timer />} /> 
+        <Route path="/normal" element={<Normal />} /> 
+        <Route path="/auto" element={<Auto />} />
+        <Route path="/service" element={isLoggedIn ? <Service /> : <Navigate to="/login" />} />
+       
+      </Routes>
+    </Router>
   );
 }
 
