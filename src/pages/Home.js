@@ -16,9 +16,6 @@ function Home() {
       case 'Normal':
         navigate('/normal');
         break;
-      case 'Automatic':
-        navigate('/auto');
-        break;
       case 'By Timer':
         navigate('/timer');
         break;
@@ -57,7 +54,6 @@ function Home() {
                   className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full h-10 text-lg"
                 >
                   <option value="Normal">Normal</option>
-                  <option value="Automatic">Automatic</option>
                   <option value="By Timer">By Timer</option>
                 </select>
                 <button

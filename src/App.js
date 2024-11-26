@@ -8,7 +8,6 @@ import Service from './pages/Service';
 import { useAuth } from './AuthContext'; 
 import Normal from './pages/sections/Normal';
 import Timer from './pages/sections/ByTimer'; 
-import Auto from './pages/sections/Auto';
 
 function App() {
   const { isLoggedIn } = useAuth(); // Destructure correctly
@@ -21,7 +20,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/timer" element={<Timer />} /> 
         <Route path="/normal" element={<Normal />} /> 
-        <Route path="/auto" element={<Auto />} />
         <Route path="/service" element={isLoggedIn ? <Service /> : <Navigate to="/login" />} />
        
       </Routes>
